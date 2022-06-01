@@ -1,5 +1,9 @@
 import { readFile, writeFile } from 'fs/promises';
+import { Injectable } from '@nestjs/common';
 
+//register a class with our DI container
+//usually we resgiter services & repos/ we do not need to regsiter cotrollers
+@Injectable()
 export class MessagesRepository {
   async findOne(id: { id: string }) {
     const contents = await readFile('messages.json', 'utf-8');
